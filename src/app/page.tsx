@@ -28,4 +28,4 @@ export default function Home() {
 }
 
 
-Hey, I`m a Senior Software Engineer at Company. I enjoy working with Next.js and crafting beautiful front-end experiences.
+
