@@ -11,7 +11,7 @@ import BlogTile from "../components/blogtile";
 
 // }
 const GetData = async () => {
-    const res = await fetch("http://localhost:3000/api",{next:{revalidate:3600}})
+    const res = await fetch("https://musman.xyz/api",{next:{revalidate:3600}})
     const Data1 = res.json()
     return Data1
 }
