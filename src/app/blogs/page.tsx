@@ -1,14 +1,43 @@
 import BlogTile from "../components/blogtile";
+// const connectDB = require("../api/db");
+// import Blog from "../api/models";
+// const GetData =  () => {
+//      connectDB();
+    
+//     const recentBlogs =  Blog.find().sort({ date: -1 }).limit(2); // Sort descending by date, limit to 2
+//     console.log(recentBlogs); // Output: Array of 2 most recent blog documents
+      
+    
 
-const Page = () => {
+// }
+const GetData = async () => {
+    const res = await fetch("http://localhost:3000/api",{next:{revalidate:3600}})
+    const Data1 = res.json()
+    return Data1
+}
+const Page = async () => {
+    const Data = await GetData()
+    console.log("inside the blog/page")
+    
+    console.log(Data)
     return(
-        <div className="container mx-auto my-auto pt-[3rem] sm:px-[10%] md:px-[15%] lg:px-[20%] xl:px-[30%]">
+        <div className=" my-auto pt-[3rem] container mx-auto sm:px-[8%] md:px-[12%] lg:px-[18%] xl:px-[28%] ">
             <div className="flex flex-col place-items-center">
-            <BlogTile Title="A beautiful Day" Description="Short Description about a beautiful Data" Date="1/1/2003" link="/blogs/1"/>
-            <BlogTile Title="Creating a Watch" Description="Short Descri=ptabfibga aeohgoaebgal aghoahefa" Date="1/1/2003" link="/blogs/2"/>
+            {Data && Data.map((blog:any) => {
+                const date = new Date(blog.date);
+
+                
+                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            
+                
+                const formattedDate = `${date.getDate()}, ${months[date.getMonth()]}, ${date.getFullYear()}`;
+                return <BlogTile key={blog._id} Title={blog.title} Description={blog.description} Date={formattedDate} link={`/blogs/${blog.id}`}/>;
+                
+            })}
             </div>
         </div>
     )
+    
 }
 
 export default Page;

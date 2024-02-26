@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 import Footer from './components/footer'
 
 export const metadata: Metadata = {
-  title: 'Portfolio Blog',
+  title: 'Portfolio ',
   description: 'A portfolio website created for Muhammad Usman and also serves as a blog.',
 }
 
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`h-screen pt-[5rem] ${inter.className}`}>
-        <NavBar text="Muhammad Usman Ahmad" link=' ' />
+      <NavBar/>
         {children}
         <Footer />
         </body>
