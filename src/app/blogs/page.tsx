@@ -1,4 +1,5 @@
 import BlogTile from "../components/blogtile";
+import datafetcher from "../components/datafetcher";
 
     
 
@@ -9,14 +10,14 @@ const GetData = async () => {
     return Data1
 }
 const Page = async () => {
-    const Data = await GetData()
+    const Data = await datafetcher()
     console.log("inside the blog/page")
     
     console.log(Data)
     return(
         <div className=" my-auto pt-[3rem] container mx-auto sm:px-[8%] md:px-[12%] lg:px-[18%] xl:px-[28%] ">
             <div className="flex flex-col place-items-center">
-            {Data && Data.map((blog:any) => {
+            {Data && Data.recentBlogs.map((blog:any) => {
                 const date = new Date(blog.date);
 
                 

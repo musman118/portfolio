@@ -16,5 +16,6 @@ export async function GET(request) {
     // Output: Array of 2 most recent blog documents
     console.log("Inside route.js")
    
-    return NextResponse.json( recentBlogs )}
+    return NextResponse.json( recentBlogs, {status: 200} )
+}
 

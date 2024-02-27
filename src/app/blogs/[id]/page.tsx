@@ -4,6 +4,7 @@ const connectDB = require("@/app/api/db");
 import Blog from "@/app/api/models";
 import revalidate from 'next'
 import BlogNav from '@/app/components/blognav';
+import datafetcher from '@/app/components/datafetcher';
 const GetData = async () => {
     const res = await fetch("http://localhost:3000/api",{next:{revalidate:3600}})
     const Data1 = res.json()
@@ -12,9 +13,10 @@ const GetData = async () => {
 
 
 const Page  = async ({params}:{params:{id:string}}) =>{
-    let data2  = await GetData()
-    
-    let data1  = data2.filter((blog:any) => blog.id.toString() === params.id)
+    console.log("fetching data from function")
+    let data2  = await datafetcher()
+    console.log("Data2 is ",data2)
+    let data1  = data2.recentBlogs.filter((blog:any) => blog.id.toString() === params.id)
     let data = data1[0];
     console.log("Inside the blog/page")
     // console.log(data)
