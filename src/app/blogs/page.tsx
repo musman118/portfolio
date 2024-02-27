@@ -1,15 +1,8 @@
 import BlogTile from "../components/blogtile";
-// const connectDB = require("../api/db");
-// import Blog from "../api/models";
-// const GetData =  () => {
-//      connectDB();
-    
-//     const recentBlogs =  Blog.find().sort({ date: -1 }).limit(2); // Sort descending by date, limit to 2
-//     console.log(recentBlogs); // Output: Array of 2 most recent blog documents
-      
+
     
 
-// }
+
 const GetData = async () => {
     const res = await fetch("https://musman.xyz/api",{next:{revalidate:3600}})
     const Data1 = res.json()
