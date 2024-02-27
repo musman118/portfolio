@@ -11,13 +11,14 @@ const GetData = async () => {
 }
 const Page = async () => {
     const Data = await datafetcher()
+    console.log(Data)
     console.log("inside the blog/page")
     
     console.log(Data)
     return(
         <div className=" my-auto pt-[3rem] container mx-auto sm:px-[8%] md:px-[12%] lg:px-[18%] xl:px-[28%] ">
             <div className="flex flex-col place-items-center">
-            {Data && Data.recentBlogs.map((blog:any) => {
+            {Data && Data.map((blog:any) => {
                 const date = new Date(blog.date);
 
                 

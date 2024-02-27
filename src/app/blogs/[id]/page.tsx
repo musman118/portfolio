@@ -16,7 +16,7 @@ const Page  = async ({params}:{params:{id:string}}) =>{
     console.log("fetching data from function")
     let data2  = await datafetcher()
     console.log("Data2 is ",data2)
-    let data1  = data2.recentBlogs.filter((blog:any) => blog.id.toString() === params.id)
+    let data1  = data2.filter((blog:any) => blog.id.toString() === params.id)
     let data = data1[0];
     console.log("Inside the blog/page")
     // console.log(data)

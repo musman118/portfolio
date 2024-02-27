@@ -3,7 +3,7 @@ export default async function datafetcher() {
     try {
         console.log("Making Request");
         
-        const res = await fetch("https://musman.xyz/api",{next:{revalidate:3600}})
+        const res = await fetch("https://api.musman.xyz/blogs",{next:{revalidate:3600}})
 
         // if (!res.ok) {
         //     throw new Error('Failed to fetch');
