@@ -17,7 +17,7 @@ const  BlogNav = async (params:{data:{id:number,title:string,description:string,
     const blogdate = new Date(data.date);
 
                 
-                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const months = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             
                 
                 const formattedDate = `${months[blogdate.getMonth()]} ${blogdate.getDate()}, ${blogdate.getFullYear()}`;
@@ -25,16 +25,18 @@ const  BlogNav = async (params:{data:{id:number,title:string,description:string,
     return (
         <nav className="p-1 py-2 mt-auto ">
         <div className="container mx-auto sm:px-[8%] md:px-[12%] lg:px-[18%] xl:px-[28%] ">
-          <div className="flex flex-col space-y-3">
+          <div className="flex flex-col space-y-6 px-[3%]" >
             
             
 
             <div className="basis-2/3 text-black font-bold ">
               <a href={`/blogs/${data.id}`}><h1 className={`${inter.className} font-extrabold text-4xl`}>{data.title}</h1></a>
             </div>
-            
-            <p className='text-gray-300'>{formattedDate}</p>
+            <div className="flex flex-row justify-between ">  
+              <p className='text-gray-300'>{formattedDate}</p>
+              <Link href={`/blogs`} className='underline text-gray-300'><p>Back</p></Link>
             </div>
+          </div>
           
         </div>
       </nav>    

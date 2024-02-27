@@ -50,7 +50,7 @@ const Nav =  () =>{
 
       <nav className="p-1 py-2 mt-auto ">
         <div className="container mx-auto sm:px-[8%] md:px-[12%] lg:px-[18%] xl:px-[28%] ">
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-2 px-[2%]">
             
             
 

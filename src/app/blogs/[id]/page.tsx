@@ -2,6 +2,7 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 const connectDB = require("@/app/api/db");
 import Blog from "@/app/api/models";
+import {roboto} from '@/app/ui/fonts'
 import revalidate from 'next'
 import BlogNav from '@/app/components/blognav';
 import datafetcher from '@/app/components/datafetcher';
@@ -25,7 +26,7 @@ const Page  = async ({params}:{params:{id:string}}) =>{
     return(
         <>
         <BlogNav data={data}/>
-        <div className="container mx-auto my-auto pt-[3rem] sm:px-[8%] md:px-[13%] lg:px-[18%] xl:px-[28%] overflow-y-auto">
+        <div className={`container mx-auto my-auto pt-[3rem] px-[3%] sm:px-[8%] md:px-[13%] lg:px-[18%] xl:px-[28%] overflow-y-auto prose ${roboto.className}`}>
         <Markdown remarkPlugins={[remarkGfm]}>{data.markdown}</Markdown>
         </div>
         </>

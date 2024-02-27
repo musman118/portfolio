@@ -25,3 +25,19 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+@layer base {
+   .prose h1 {
+    @apply text-2xl;
+    @apply font-bold;
+  }
+  .prose h2 {
+    @apply text-xl;
+    @apply font-bold;
+  }
+  .prose a{
+    @apply text-blue-500;
+
+  }
+  /* ... */
+}
